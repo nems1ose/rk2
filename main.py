@@ -1,5 +1,4 @@
-""""
-1)«Отдел» и «Сотрудник» связаны соотношением один-ко-многим.
+""""1)«Отдел» и «Сотрудник» связаны соотношением один-ко-многим.
  Выведите список всех отделов, у которых название начинается с буквы «А», и список работающих
   в них сотрудников.
 2)«Отдел» и «Сотрудник» связаны соотношением один-ко-многим.
@@ -8,43 +7,73 @@
 3)«Отдел» и «Сотрудник» связаны соотношением многие-ко-многим.
 Выведите список всех связанных сотрудников и отделов, отсортированный по отделам,
 сортировка по сотрудникам произвольная.
-7 Вариант (Микропроцессор, Компьютер)
+3 Вариант (Водитель, автопарк)
 """
-
 from operator import itemgetter
 
 
 class Driver:
-    """Микропроцессор"""
-    def __init__(self, id, name, date, comp_id):
+    """Водитель"""
+
+    def __init__(self, id, fio, sal, park_id):
         self.id = id
-        self.name = name
-        self.date = date
-        self.comp_id = comp_id
-class Computer:
-    """Компьютер"""
+        self.fio = fio
+        self.sal = sal
+        self.park_id = park_id
+
+
+class Autopark:
+    """Автопарк"""
+
     def __init__(self, id, name):
         self.id = id
         self.name = name
-class DriverInComputer:
+
+
+class DriverInAutopark:
     """
-    'Микропроцессоры' для реализации
+    'Водители' для реализации
     связи многие-ко-многим
     """
-    def __init__(self, comp_id, emp_id):
-        self.comp_id = comp_id
+
+    def __init__(self, park_id, emp_id):
+        self.park_id = park_id
         self.driver_id = emp_id
 
 
-# Компьютеры
-computers = [   Computer(1, 'MacBook'), Computer(2, 'RedmiBook'), Computer(3, 'Imac'),
-                Computer(11, 'XiaomiBook'), Computer(22, 'Ipad'), Computer(33, 'PopicBook'),]
-# Микропроцессоры
-drivers = [ Driver(1, 'Intel-i5' , 1998, 1), Driver(2, 'Intel-i7',  2010, 2),
-            Driver(3, 'Intel-i9',  2021, 3), Driver(4, 'AMD-3',  2001, 3), Driver(5, 'AMD-6',  2004, 3),]
+# Автопарки
+autoparks = [
+    Autopark(1, 'Астафьево'),
+    Autopark(2, 'Рязанский ЦАВ'),
+    Autopark(3, 'Щёлковский АВ'),
 
-goslings = [    DriverInComputer(1, 1), DriverInComputer(2, 2), DriverInComputer(3, 3), DriverInComputer(3, 4), DriverInComputer(3, 5),
-                DriverInComputer(11, 1), DriverInComputer(22, 2), DriverInComputer(33, 3), DriverInComputer(33, 4), DriverInComputer(33, 5),]
+    Autopark(11, 'Котельники'),
+    Autopark(22, 'Рязань-2'),
+    Autopark(33, 'Щёлково'),
+]
+
+# Водители
+drivers = [
+    Driver(1, 'Георгич', 25000, 1),
+    Driver(2, 'Дмитрич', 35000, 2),
+    Driver(3, 'Геннадич', 45000, 3),
+    Driver(4, 'Палыч', 35000, 3),
+    Driver(5, 'Михалыч', 25000, 3),
+]
+
+goslings = [
+    DriverInAutopark(1, 1),
+    DriverInAutopark(2, 2),
+    DriverInAutopark(3, 3),
+    DriverInAutopark(3, 4),
+    DriverInAutopark(3, 5),
+
+    DriverInAutopark(11, 1),
+    DriverInAutopark(22, 2),
+    DriverInAutopark(33, 3),
+    DriverInAutopark(33, 4),
+    DriverInAutopark(33, 5),
+]
 
 
 def ans_one(one_to_many_fq):
@@ -54,7 +83,7 @@ def ans_one(one_to_many_fq):
     j = 0
     ans = []
     """Sliding windows"""
-    while i < len(one_to_many_fq) and one_to_many_fq[i][0].startswith('M'):
+    while i < len(one_to_many_fq) and one_to_many_fq[i][0].startswith('А'):
         if i == j:
             ans.append(one_to_many_fq[j][0])
         while j < len(one_to_many_fq) and one_to_many_fq[j][0] == one_to_many_fq[i][0]:
