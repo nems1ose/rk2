@@ -15,8 +15,7 @@ from operator import itemgetter
 
 
 class Driver:
-    """Водитель"""
-
+    """Микропроцессор"""
     def __init__(self, id, fio, sal, park_id):
         self.id = id
         self.fio = fio
@@ -25,8 +24,7 @@ class Driver:
 
 
 class Autopark:
-    """Автопарк"""
-
+    """Компьютер"""
     def __init__(self, id, name):
         self.id = id
         self.name = name
@@ -34,49 +32,25 @@ class Autopark:
 
 class DriverInAutopark:
     """
-    'Водители' для реализации
+    'Микропроцессоры' для реализации
     связи многие-ко-многим
     """
-
     def __init__(self, park_id, emp_id):
         self.park_id = park_id
         self.driver_id = emp_id
 
 
-# Автопарки
+# Компьютеры
 autoparks = [
-    Autopark(1, 'Астафьево'),
-    Autopark(2, 'Рязанский ЦАВ'),
-    Autopark(3, 'Щёлковский АВ'),
+    Autopark(1, 'MacBook'), Autopark(2, 'RedmiBook'), Autopark(3, 'Imac'),
+    Autopark(11, 'XiaomiBook'), Autopark(22, 'Ipad'), Autopark(33, 'PopicBook'),]
 
-    Autopark(11, 'Котельники'),
-    Autopark(22, 'Рязань-2'),
-    Autopark(33, 'Щёлково'),
-]
+# Микропроцессоры
+drivers = [Driver(1, 'Intel-i5' , 1998, 1), Driver(2, 'Intel-i7',  2010, 2), Driver(3, 'Intel-i9',  2021, 3),
+           Driver(4, 'AMD-3',  2001, 3), Driver(5, 'AMD-6',  2004, 3),]
 
-# Водители
-drivers = [
-    Driver(1, 'Георгич', 25000, 1),
-    Driver(2, 'Дмитрич', 35000, 2),
-    Driver(3, 'Геннадич', 45000, 3),
-    Driver(4, 'Палыч', 35000, 3),
-    Driver(5, 'Михалыч', 25000, 3),
-]
-
-goslings = [
-    DriverInAutopark(1, 1),
-    DriverInAutopark(2, 2),
-    DriverInAutopark(3, 3),
-    DriverInAutopark(3, 4),
-    DriverInAutopark(3, 5),
-
-    DriverInAutopark(11, 1),
-    DriverInAutopark(22, 2),
-    DriverInAutopark(33, 3),
-    DriverInAutopark(33, 4),
-    DriverInAutopark(33, 5),
-]
-
+goslings = [DriverInAutopark(1, 1), DriverInAutopark(2, 2), DriverInAutopark(3, 3), DriverInAutopark(3, 4), DriverInAutopark(3, 5),
+DriverInAutopark(11, 1), DriverInAutopark(22, 2), DriverInAutopark(33, 3), DriverInAutopark(33, 4), DriverInAutopark(33, 5),]
 
 def ans_one(one_to_many_fq):
     print("First Question")
