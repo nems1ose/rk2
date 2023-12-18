@@ -15,31 +15,24 @@ from operator import itemgetter
 
 
 class Driver:
-    """Водитель"""
-
-    def __init__(self, id, fio, sal, park_id):
+    """Микропроцессор"""
+    def __init__(self, id, name, date, comp_id):
         self.id = id
-        self.fio = fio
-        self.sal = sal
-        self.park_id = park_id
-
-
-class Autopark:
-    """Автопарк"""
-
+        self.name = name
+        self.date = date
+        self.comp_id = comp_id
+class Computer:
+    """Компьютер"""
     def __init__(self, id, name):
         self.id = id
         self.name = name
-
-
-class DriverInAutopark:
+class DriverInComputer:
     """
-    'Водители' для реализации
+    'Микропроцессоры' для реализации
     связи многие-ко-многим
     """
-
-    def __init__(self, park_id, emp_id):
-        self.park_id = park_id
+    def __init__(self, comp_id, emp_id):
+        self.comp_id = comp_id
         self.driver_id = emp_id
 
 
