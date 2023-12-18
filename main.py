@@ -36,39 +36,15 @@ class DriverInComputer:
         self.driver_id = emp_id
 
 
-# Автопарки
-autoparks = [
-    Autopark(1, 'Астафьево'),
-    Autopark(2, 'Рязанский ЦАВ'),
-    Autopark(3, 'Щёлковский АВ'),
+# Компьютеры
+computers = [   Computer(1, 'MacBook'), Computer(2, 'RedmiBook'), Computer(3, 'Imac'),
+                Computer(11, 'XiaomiBook'), Computer(22, 'Ipad'), Computer(33, 'PopicBook'),]
+# Микропроцессоры
+drivers = [ Driver(1, 'Intel-i5' , 1998, 1), Driver(2, 'Intel-i7',  2010, 2),
+            Driver(3, 'Intel-i9',  2021, 3), Driver(4, 'AMD-3',  2001, 3), Driver(5, 'AMD-6',  2004, 3),]
 
-    Autopark(11, 'Котельники'),
-    Autopark(22, 'Рязань-2'),
-    Autopark(33, 'Щёлково'),
-]
-
-# Водители
-drivers = [
-    Driver(1, 'Георгич', 25000, 1),
-    Driver(2, 'Дмитрич', 35000, 2),
-    Driver(3, 'Геннадич', 45000, 3),
-    Driver(4, 'Палыч', 35000, 3),
-    Driver(5, 'Михалыч', 25000, 3),
-]
-
-goslings = [
-    DriverInAutopark(1, 1),
-    DriverInAutopark(2, 2),
-    DriverInAutopark(3, 3),
-    DriverInAutopark(3, 4),
-    DriverInAutopark(3, 5),
-
-    DriverInAutopark(11, 1),
-    DriverInAutopark(22, 2),
-    DriverInAutopark(33, 3),
-    DriverInAutopark(33, 4),
-    DriverInAutopark(33, 5),
-]
+goslings = [    DriverInComputer(1, 1), DriverInComputer(2, 2), DriverInComputer(3, 3), DriverInComputer(3, 4), DriverInComputer(3, 5),
+                DriverInComputer(11, 1), DriverInComputer(22, 2), DriverInComputer(33, 3), DriverInComputer(33, 4), DriverInComputer(33, 5),]
 
 
 def ans_one(one_to_many_fq):
