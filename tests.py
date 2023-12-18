@@ -21,7 +21,7 @@ class rk2teste(unittest.TestCase):
                           for driver in drivers
                           if park.id == driver.park_id]
         self.assertEqual(ans_one(one_to_many_fq),
-                         ['Астафьево', 'Георгич 25000'])
+                         ['MacBook', 'Intel-i5' , 1998])
 
     def test_two(self):
         one_to_many_fq = [(park.name, driver.fio, driver.sal)
@@ -29,7 +29,7 @@ class rk2teste(unittest.TestCase):
                           for driver in drivers
                           if park.id == driver.park_id]
         self.assertEqual(ans_two(one_to_many_fq),
-                         [('Астафьево', 25000), ('Рязанский ЦАВ', 35000), ('Щёлковский АВ', 45000)])
+                         [('MacBook', 1998), ('RedmiBook', 2010), ('Imac', 2021)])
 
     def test_three(self):
         one_to_many_curr = [(park.name, dia.park_id, dia.driver_id)
@@ -40,11 +40,11 @@ class rk2teste(unittest.TestCase):
                             for park_name, park_id, driver_id in one_to_many_curr
                             for d in drivers if d.id == driver_id]
         self.assertEqual(ans_three(many_to_many_ans),
-                         {'Астафьево': ['Георгич'],
-                          'Рязанский ЦАВ': ['Дмитрич'],
-                          'Щёлковский АВ': ['Геннадич', 'Палыч', 'Михалыч'],
-                          'Котельники': ['Георгич'], 'Рязань-2': ['Дмитрич'],
-                          'Щёлково': ['Геннадич', 'Палыч', 'Михалыч']})
+                         {'MacBook': ['Intel-i5'],
+                          'RedmiBook': ['Intel-i7'],
+                          'Imac': ['Intel-i9', 'AMD-3', 'AMD-6'],
+                          'XiaomiBook': ['Intel-i5'], 'Ipad': ['Intel-i7'],
+                          'PopicBook': ['Intel-i9', 'AMD-3', 'AMD-6']})
 
 
 if __name__ == '__main__':
