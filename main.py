@@ -59,7 +59,7 @@ def ans_one(one_to_many_fq):
     j = 0
     ans = []
     """Sliding windows"""
-    while i < len(one_to_many_fq) and one_to_many_fq[i][0].startswith('А'):
+    while i < len(one_to_many_fq) and one_to_many_fq[i][0].startswith('M'):
         if i == j:
             ans.append(one_to_many_fq[j][0])
         while j < len(one_to_many_fq) and one_to_many_fq[j][0] == one_to_many_fq[i][0]:
